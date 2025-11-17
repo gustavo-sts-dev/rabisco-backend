@@ -1,20 +1,16 @@
 import { env } from "./env.config";
 
-const jwt_config = {
-  access: {
-    secret: env.ACCESS_SECRET,
-    sign: {
-      expiresIn: env.ACCESS_EXPIRES_IN,
-    },
-    namespace: "access_token",
-  },
-  refresh: {
-    secret: env.REFRESH_SECRET,
-    sign: {
-      expiresIn: env.REFRESH_EXPIRES_IN,
-    },
-    namespace: "refresh_token",
-  },
-};
+interface JWTConfig {
+  secret: string;
+  expiresIn: string;
+}
 
-export default jwt_config
+export const access: JWTConfig = {
+    secret: env.ACCESS_SECRET,
+    expiresIn: env.ACCESS_EXPIRES_IN
+}
+
+export const refresh = {
+  secret: env.REFRESH_SECRET,
+  expiresIn: env.REFRESH_EXPIRES_IN,
+};

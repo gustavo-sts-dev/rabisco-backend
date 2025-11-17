@@ -5,6 +5,7 @@ loadEnvFile()
 const env_schema = z.object({
   NODE_ENV: z.enum(["production", "development", "test"]).default("development"),
   PORT: z.coerce.number().positive().optional(),
+  MONGODB_URI: z.string().startsWith("mongodb+srv://"),
   ALLOWED_ORIGINS: z.url(),
   ACCESS_SECRET: z.string().min(32),
   ACCESS_EXPIRES_IN: z.string().default("15m"),

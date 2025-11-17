@@ -16,11 +16,24 @@
     "noUncheckedIndexedAccess": true,
     "exactOptionalPropertyTypes": true,
 
+    "noImplicitAny": false,
+
     "strict": true,
     "verbatimModuleSyntax": true,
     "isolatedModules": true,
     "noUncheckedSideEffectImports": true,
     "moduleDetection": "force",
     "skipLibCheck": true,
-  }
+
+    "baseUrl": ".",
+
+    "paths": {
+      "@src/*": ["./src/*"],
+      "@configs/*": ["./src/configs/*"],
+      "@shared/*": ["./src/shared/*"]
+    },
+
+    "typeRoots": ["./node_modules/@types", "./"]
+  },
+  "include": ["src/**/*.ts", "jwt-types.d.ts"]
 }

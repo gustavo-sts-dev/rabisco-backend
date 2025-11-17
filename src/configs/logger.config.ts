@@ -26,15 +26,14 @@ const logger_config = {
     },
     serializers: {
       req: (request: import("fastify").FastifyRequest) => {
-        const raw_body = { ...(request.body as any) };
-        delete raw_body.password;
-        delete raw_body.confirmPassword;
 
-        const headers = { ...request.headers };
-        delete headers.authorization?.split(" ")[1];
+        const body: any = { ...request.body as any };
+        delete body.password;
+
+        const { authorization, ...headers } = request.headers;
         
         return {
-          raw_body,
+          body, 
           headers,
         };
       },
