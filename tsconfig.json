@@ -25,6 +25,8 @@
     "moduleDetection": "force",
     "skipLibCheck": true,
 
+    "esModuleInterop": true,
+
     "baseUrl": ".",
 
     "paths": {
